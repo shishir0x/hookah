@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Smoke Bar — a virtual cigarette you smoke with your fingers</title>
+    <meta name="description" content="Free virtual cigarette in your browser: pick a pack, hold it between your fingers, draw, and blow smoke rings. No install, no tobacco, no nicotine. 18+." />
+    <meta name="theme-color" content="#4A4A4A" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Smoke Bar — the online smoke lounge" />
+    <meta property="og:description" content="Hold it between your fingers, draw, and blow smoke. Runs entirely in your browser, nothing leaves your device." />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%234A4A4A'/><circle cx='50' cy='50' r='26' fill='none' stroke='%23FFFFE3' stroke-width='9'/><circle cx='50' cy='50' r='26' fill='none' stroke='%236D8196' stroke-width='3' stroke-dasharray='26 20'/><g transform='rotate(-35 50 50)'><rect x='24' y='45' width='52' height='10' rx='3' fill='%23FFFFE3'/><rect x='24' y='45' width='15' height='10' rx='3' fill='%236D8196'/><rect x='72' y='45' width='5' height='10' rx='2' fill='%23E0762E'/></g></svg>" />
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/lora-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Preload models and wasm runtime -->
+    <script>
+      (function () {
+        var mp = '/mediapipe/1.0.1/';
+        [
+          ['/models/hand_landmarker.task', 'fetch', 'high'],
+          [mp + 'vision_wasm_internal.wasm', 'fetch'],
+          [mp + 'vision_wasm_internal.js', 'script'],
+          ['/models/face_landmarker.task', 'fetch', 'low'],
+        ].forEach(function (f) {
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.href = f[0];
+          l.as = f[1];
+          l.crossOrigin = 'anonymous';
+          if (f[2]) l.fetchPriority = f[2];
+          document.head.appendChild(l);
+        });
+      })();
+    </script>
+    <link rel="stylesheet" crossorigin href="./style.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript><p>This page needs JavaScript and a camera.</p></noscript>
+    <script type="module" crossorigin src="./app.js"></script>
+  </body>
+</html>
