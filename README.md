@@ -1,6 +1,6 @@
 # Hookah Baar & Smoke Bar (Dual Lounge Edition) 😮‍💨🚬
 
-An interactive in-browser simulation powered by computer vision and hand/face tracking. Smoke a virtual hookah or cigarette with your bare hands directly in the browser—no coal, no tobacco, no nicotine.
+An interactive in-browser simulation powered by computer vision and hand/face tracking. Smoke a virtual hookah or cigarette with your bare hands directly in the browser,no coal, no tobacco, no nicotine.
 
 ---
 
@@ -9,10 +9,8 @@ An interactive in-browser simulation powered by computer vision and hand/face tr
 This repository is a **modified fork** of the original [Hookah Baar](https://hookah.nycanshu.dev/) and incorporates features inspired by [Smoke Bar](https://smoke.nycanshu.dev/).
 
 ### Original Creator Credits
-- **Original Concept & Creation**: Built by **Himanshu Kumar ([@nycanshu](https://github.com/nycanshu))**
-- **Original Hookah Repository**: [nycanshu/hookah-site](https://github.com/nycanshu/hookah-site)
-- **Original Projects**: [hookah.nycanshu.dev](https://hookah.nycanshu.dev/) & [smoke.nycanshu.dev](https://smoke.nycanshu.dev/)
-- **Creator's Socials**: [X (@Okay_anshu)](https://x.com/Okay_anshu) · [LinkedIn](https://www.linkedin.com/in/okay-anshu/)
+- **Original Project**: [hookah.nycanshu.dev](https://hookah.nycanshu.dev/) & [smoke.nycanshu.dev](https://smoke.nycanshu.dev/)
+
 
 ### What Was Modified in This Version:
 - **Unified Dual Simulation**: Bundled both **Hookah Baar** (root `/`) and **Smoke Bar** (`/smoke/`) into a single standalone project running on the same server.
@@ -109,4 +107,4 @@ npx vercel --prod
 
 18+ only. Smoking is injurious to health. This project is a harmless interactive visual simulation containing no tobacco, no nicotine, and no real smoke. 
 
-Your camera feed is processed entirely on-device inside your browser using client-side WebAssembly—nothing is recorded, transmitted, or uploaded to any server.
+Your camera feed is processed entirely on-device inside your browser using client-side WebAssembly nothing is recorded, transmitted, or uploaded to any server.

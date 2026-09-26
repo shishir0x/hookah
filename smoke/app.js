@@ -14548,7 +14548,6 @@ Error generating stack: ` +
     t.exports = ee();
   })();
 function te({ onReset: e }) {
-  let t = `https://checkout.dodopayments.com/buy/pdt_0NoNBmWvORgfoWPPKo5X0?quantity=1&redirect_url=${encodeURIComponent(`${location.origin}/`)}`;
   return (0, x.jsxs)(`footer`, {
     className: `foot`,
     children: [
@@ -14595,23 +14594,8 @@ function te({ onReset: e }) {
         ],
       }),
       (0, x.jsxs)(`a`, {
-        className: `chai`,
-        href: t,
-        target: `_blank`,
-        rel: `noopener`,
-        title: `Had fun with the fake cigarette? Buy the dev a real chai.`,
-        children: [
-          (0, x.jsx)(`span`, {
-            className: `cup`,
-            "aria-hidden": `true`,
-            children: `☕`,
-          }),
-          (0, x.jsx)(`span`, { className: `lbl`, children: `buy me a chai` }),
-        ],
-      }),
-      (0, x.jsxs)(`a`, {
         className: `made`,
-        href: `https://www.linkedin.com/in/okay-anshu/`,
+        href: `https://www.linkedin.com/in/shishir0x/`,
         target: `_blank`,
         rel: `noopener`,
         children: [
@@ -14626,7 +14610,7 @@ function te({ onReset: e }) {
                 children: `♥`,
               }),
               ` `,
-              `by nycanshu`,
+              `by shishir0x`,
             ],
           }),
           (0, x.jsx)(`svg`, {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hookah.nycanshu.dev/sitemap.xml
+Sitemap: https://hookah-orpin.vercel.app/sitemap.xml

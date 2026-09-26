@@ -4,7 +4,7 @@
 // data. Keep the private GoatCounter API token on that backend, never here.
 (() => {
   const endpoint = document.querySelector('meta[name="visitor-count-endpoint"]')?.content
-    || 'https://hookahbaar.goatcounter.com/counter/%2F.json';
+    || 'https://hookah-orpin.vercel.app/counter/%2F.json';
   function footer() {
     const chip = document.getElementById('vibed');
     if (chip) return Promise.resolve(chip);
