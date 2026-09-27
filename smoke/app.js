@@ -14593,44 +14593,6 @@ function te({ onReset: e }) {
           (0, x.jsx)(`span`, { className: `lbl`, children: `reset` }),
         ],
       }),
-      (0, x.jsxs)(`a`, {
-        className: `made`,
-        href: `https://www.linkedin.com/in/shishir0x/`,
-        target: `_blank`,
-        rel: `noopener`,
-        children: [
-          (0, x.jsxs)(`span`, {
-            className: `lbl`,
-            children: [
-              `made with`,
-              ` `,
-              (0, x.jsx)(`span`, {
-                className: `heart`,
-                "aria-label": `love`,
-                children: `♥`,
-              }),
-              ` `,
-              `by shishir0x`,
-            ],
-          }),
-          (0, x.jsx)(`svg`, {
-            className: `li`,
-            viewBox: `0 0 24 24`,
-            width: `15`,
-            height: `15`,
-            "aria-hidden": `true`,
-            children: (0, x.jsx)(`path`, {
-              fill: `currentColor`,
-              d: `M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z`,
-            }),
-          }),
-          (0, x.jsx)(`span`, {
-            className: `arrow`,
-            "aria-hidden": `true`,
-            children: `↗`,
-          }),
-        ],
-      }),
     ],
   });
 }
@@ -15315,20 +15277,20 @@ var oe =
     SIZE_RATE: 4,
     FACE_SMOOTHING: 0.5,
     DETECT_BUDGET_MS: 24,
-    PICKUP_RADIUS: 0.12,
-    REACH_RADIUS: 0.4,
-    REACH_TIME: 0.45,
-    HOLD_ON: 0.6,
-    HOLD_OFF: 0.3,
+    PICKUP_RADIUS: 0.20,
+    REACH_RADIUS: 0.80,
+    REACH_TIME: 0.22,
+    HOLD_ON: 0.48,
+    HOLD_OFF: 0.28,
     HOLD_SWITCH: 0.25,
     OPEN_DROP: 0.75,
     OPEN_DROP_TIME: 0.3,
     LOST_AFTER: 0.8,
-    FOLLOW_RADIUS: 0.35,
+    FOLLOW_RADIUS: 0.85,
     PUTDOWN_TIME: 0.7,
     REGRAB_COOLDOWN: 0.9,
-    AT_MOUTH_DISTANCE: 0.35,
-    HAND_MOUTH_DISTANCE: 0.6,
+    AT_MOUTH_DISTANCE: 0.45,
+    HAND_MOUTH_DISTANCE: 0.75,
     PUCKER_DRAW: 0.3,
     PUCKER_KEEP: 0.18,
     EXHALE_FUNNEL: 0.25,
@@ -15603,21 +15565,23 @@ var Je = class {
           return ((this.reachTimer = 0), (this.reachPoint = null), null);
         r.sort((e, t) => pe(e.holdPoint, this.pos) - pe(t.holdPoint, this.pos));
         let i = r[0],
-          a = pe(i.holdPoint, this.pos);
-        if (a < C.PICKUP_RADIUS * n) return this._grab(i);
-        if (a < C.REACH_RADIUS * n) {
+          a = pe(i.holdPoint, this.pos),
+          pRadius = Math.max(C.PICKUP_RADIUS * n, (i.span || 0) * 1.5),
+          rRadius = Math.max(C.REACH_RADIUS * n, (i.span || 0) * 6, 650);
+        if (a < pRadius) return this._grab(i);
+        if (a < rRadius) {
           if (
             ((this.reachTimer += t),
             (this.reachPoint = i.holdPoint),
             this.reachTimer >= C.REACH_TIME)
           )
             return this._grab(i);
-        } else ((this.reachTimer = 0), (this.reachPoint = null));
+        } else ((this.reachTimer = 0), (this.reachPoint = a < rRadius * 1.2 ? i.holdPoint : null));
         return null;
       }
       let r = this.held.center,
         i = null,
-        a = C.FOLLOW_RADIUS * n;
+        a = Math.max(C.FOLLOW_RADIUS * n, 500);
       for (let t of e) {
         let e = pe(t.center, r);
         e < a && ((i = t), (a = e));
@@ -16747,8 +16711,7 @@ var ct = class {
         e.beginPath(),
         e.arc(a, o, r * (0.72 + 0.1 * i), 0, at),
         e.stroke(),
-        t.reach > 0 &&
-          t.reachPoint &&
+        t.reachPoint &&
           ((e.lineWidth = 1),
           (e.strokeStyle = se.LAVENDER),
           e.beginPath(),
@@ -27290,25 +27253,36 @@ async function Lf(e, t, n = `auto`) {
   return e.endsWith(`.gz`) ? If(r) : r;
 }
 async function Rf(e, t, n) {
-  let r = await fetch(e, { priority: n });
-  if (!r.ok) throw Error(`${e}: HTTP ${r.status}`);
-  let i = Number(r.headers.get(`content-length`)) || 0;
-  if (!r.body || !i) {
-    let e = new Uint8Array(await r.arrayBuffer());
-    return (t(1), e);
+  let fn = e.split("/").pop(),
+    cands = [e, `/${e}`.replace("//", "/"), `/models/${fn}`, `../models/${fn}`, `models/${fn}`],
+    dedup = [...new Set(cands)],
+    lastErr;
+  for (let cand of dedup) {
+    try {
+      let r = await fetch(cand, { priority: n });
+      if (!r.ok) { lastErr = Error(`${cand}: HTTP ${r.status}`); continue; }
+      let i = Number(r.headers.get(`content-length`)) || 0;
+      if (!r.body || !i) {
+        let e = new Uint8Array(await r.arrayBuffer());
+        return (t(1), e);
+      }
+      let a = r.body.getReader(),
+        o = [],
+        s = 0;
+      for (;;) {
+        let { done: e, value: n } = await a.read();
+        if (e) break;
+        (o.push(n), (s += n.length), t(Math.min(1, s / i)));
+      }
+      let c = new Uint8Array(s),
+        l = 0;
+      for (let e of o) (c.set(e, l), (l += e.length));
+      return c;
+    } catch (err) {
+      lastErr = err;
+    }
   }
-  let a = r.body.getReader(),
-    o = [],
-    s = 0;
-  for (;;) {
-    let { done: e, value: n } = await a.read();
-    if (e) break;
-    (o.push(n), (s += n.length), t(Math.min(1, s / i)));
-  }
-  let c = new Uint8Array(s),
-    l = 0;
-  for (let e of o) (c.set(e, l), (l += e.length));
-  return c;
+  throw lastErr;
 }
 var zf = class {
     constructor() {
@@ -27331,18 +27305,18 @@ var zf = class {
         ((this.hands = this._warm(
           await this._create(lf, await e, await t, {
             numHands: C.NUM_HANDS,
-            minHandDetectionConfidence: 0.5,
-            minHandPresenceConfidence: 0.4,
-            minTrackingConfidence: 0.4,
+            minHandDetectionConfidence: 0.25,
+            minHandPresenceConfidence: 0.25,
+            minTrackingConfidence: 0.25,
           }),
         )),
           (this.face = this._warm(
             await this._create(Z, await e, await n, {
               numFaces: 1,
               outputFaceBlendshapes: !0,
-              minFaceDetectionConfidence: 0.5,
-              minFacePresenceConfidence: 0.4,
-              minTrackingConfidence: 0.4,
+              minFaceDetectionConfidence: 0.3,
+              minFacePresenceConfidence: 0.3,
+              minTrackingConfidence: 0.3,
             }),
           )));
       } catch (e) {
