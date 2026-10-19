@@ -16080,10 +16080,57 @@ var it = class {
         });
       }
     }
-    step(e) {
+    step(e, hands = []) {
       ((this.t += e), (this.ringCooldown = Math.max(0, this.ringCooldown - e)));
       let t = this.k,
         n = this.t;
+      this._handTrack = this._handTrack || new Map();
+      let now = performance.now();
+      let pts = [];
+      if (hands && hands.length) {
+        for (let hIdx = 0; hIdx < hands.length; hIdx++) {
+          let h = hands[hIdx];
+          if (!h) continue;
+          let ptCenter = h.center || h.gripPoint || h.holdPoint;
+          if (!ptCenter) continue;
+          let [hx, hy] = ptCenter;
+          let trk = this._handTrack.get(hIdx) || { x: hx, y: hy, vx: 0, vy: 0, t: now };
+          let dtH = Math.max(0.001, (now - trk.t) / 1000);
+          let hvx = trk.vx, hvy = trk.vy;
+          if (Math.hypot(hx - trk.x, hy - trk.y) > 0.5) {
+            let rawVx = (hx - trk.x) / dtH, rawVy = (hy - trk.y) / dtH;
+            let rawSpd = Math.hypot(rawVx, rawVy);
+            if (rawSpd > 3500) {
+              rawVx = (rawVx / rawSpd) * 3500;
+              rawVy = (rawVy / rawSpd) * 3500;
+              rawSpd = 3500;
+            }
+            hvx = trk.vx * 0.35 + rawVx * 0.65;
+            hvy = trk.vy * 0.35 + rawVy * 0.65;
+            trk.x = hx;
+            trk.y = hy;
+            trk.t = now;
+          } else if (dtH > 0.08) {
+            hvx *= 0.8;
+            hvy *= 0.8;
+          }
+          trk.vx = hvx;
+          trk.vy = hvy;
+          this._handTrack.set(hIdx, trk);
+          let spd = Math.hypot(hvx, hvy);
+          let pRadius = Math.max(180 * t, (h.palm || h.handSpan || 100) * 2.2);
+          pts.push({ x: hx, y: hy, vx: hvx, vy: hvy, spd: spd, radius: pRadius, weight: 1.0 });
+
+          if (h.landmarks) {
+            for (let fIdx of [8, 12, 4, 20]) {
+              if (h.landmarks[fIdx]) {
+                let [fx, fy] = h.landmarks[fIdx];
+                pts.push({ x: fx, y: fy, vx: hvx * 1.15, vy: hvy * 1.15, spd: spd, radius: pRadius * 0.65, weight: 0.85 });
+              }
+            }
+          }
+        }
+      }
       for (let r = this.p.length - 1; r >= 0; r--) {
         let i = this.p[r],
           a = i.flavour,
@@ -16100,8 +16147,34 @@ var it = class {
             c),
           (i.vy +=
             Math.cos(n * 1.1 + (i.x * 0.015) / t + i.seed) * 20 * t * e * c -
-            12 * t * e * a.lift * o.lift),
-          (i.x += i.vx * e),
+            12 * t * e * a.lift * o.lift));
+
+        for (let pt of pts) {
+          let dx = i.x - pt.x, dy = i.y - pt.y;
+          let d = Math.hypot(dx, dy);
+          if (d < pt.radius && d > 0.1) {
+            let q = 1 - d / pt.radius;
+            let falloff = q * pt.weight;
+            let nx = dx / d, ny = dy / d;
+            let blend = Math.min(1, e * 25);
+            if (d < pt.radius * 0.7) {
+              let pen = (pt.radius * 0.7 - d) * 0.6;
+              i.x += nx * pen;
+              i.y += ny * pen;
+            }
+            let push = (750 * t + pt.spd * 0.85) * falloff;
+            let dragX = pt.vx * 1.25 * falloff;
+            let dragY = pt.vy * 1.25 * falloff;
+            let cross = pt.vx * dy - pt.vy * dx;
+            let sDir = cross !== 0 ? Math.sign(cross) : (i.seed > 3.14 ? 1 : -1);
+            let swirl = (550 * t + pt.spd * 0.75) * falloff * sDir;
+            i.vx += (nx * push + dragX - ny * swirl) * blend;
+            i.vy += (ny * push + dragY + nx * swirl) * blend;
+            i.r += 32 * t * e * falloff;
+          }
+        }
+
+        ((i.x += i.vx * e),
           (i.y += i.vy * e),
           (i.r += (i.ring ? 20 : 26) * t * e * a.growth * o.growth),
           (i.life -= e),
@@ -16327,7 +16400,7 @@ var ct = class {
           ),
         t.lit &&
           this.smoke.side(t.burnPoint, n, t.drawIntensity > 0 ? 0.35 : 1),
-        this.smoke.step(n),
+        this.smoke.step(n, t.allHands || (t.hand ? [t.hand] : [])),
         this._stepParticles(n),
         r.demo && this._drawDemoFace(e, t),
         this._drawStand(e),
@@ -27724,6 +27797,11 @@ var Gf = class {
           : ((n.fillStyle = se.BACKDROP), n.fillRect(0, 0, i, a)),
         this.mode === `demo` && (this.obs = this._demoObs()));
       let s = this.session.update(this.obs.hands, this.obs.face, t);
+      let _ah = this.obs.hands ? [...this.obs.hands] : [];
+      if (typeof window !== "undefined" && window._smokeMouseHand && performance.now() - window._smokeMouseT < 500) {
+        _ah.push(window._smokeMouseHand);
+      }
+      s.allHands = _ah;
       ((s.debugHands = this.debug ? this.obs.hands : null),
         this.scene.draw(n, s, t, {
           debug: this.debug,
@@ -28265,3 +28343,18 @@ function tp() {
     addEventListener(`load`, () =>
       Promise.reject("disabled locally").catch(() => {}),
     ));
+
+if (typeof window !== "undefined") {
+  window.addEventListener("pointermove", (e) => {
+    let cv = document.querySelector("canvas");
+    if (cv && cv.getBoundingClientRect) {
+      let rect = cv.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        let cx = (e.clientX - rect.left) * (cv.width / rect.width);
+        let cy = (e.clientY - rect.top) * (cv.height / rect.height);
+        window._smokeMouseHand = { center: [cx, cy], palm: 90, isMouse: true };
+        window._smokeMouseT = performance.now();
+      }
+    }
+  });
+}
