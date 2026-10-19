@@ -27729,6 +27729,7 @@ var Gf = class {
           debug: this.debug,
           demo: this.mode === `demo`,
         }),
+        window.onSmokeTick && window.onSmokeTick(s, t),
         (this.hudT += t),
         this.hudT > 0.1 && ((this.hudT = 0), this._report(s)));
     }
