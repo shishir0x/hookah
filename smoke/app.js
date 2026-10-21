@@ -14551,7 +14551,7 @@ Error generating stack: ` +
       },
       smoke: { smoke: `#D3CCC4`, pale: `#EFEAE4` },
     }
-  ]
+  ],
   b = (e) => y.find((t) => t.id === e) || y[0],
   ee = o((e) => {
     var t = Symbol.for(`react.transitional.element`),
