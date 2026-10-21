@@ -15337,10 +15337,10 @@ var oe =
     EXHALE_DRAIN_TIME: 1.6,
     EXHALE_MIN_LUNG: 0.08,
     MIN_DRAG: 0.35,
-    CIG_LENGTH: 0.165,
-    CIG_FACE_RATIO: 0.52,
-    CIG_PALM_RATIO: 0.82,
-    CIG_WIDTH_RATIO: 0.082,
+    CIG_LENGTH: 0.2,
+    CIG_FACE_RATIO: 0.62,
+    CIG_PALM_RATIO: 0.95,
+    CIG_WIDTH_RATIO: 0.095,
     FILTER_FRAC: 0.27,
     GRIP_FRAC: { vee: 0.2, tri: 0.08, pinch: 0.1 },
     HOLD_ANGLE: { vee: 62, tri: 22, pinch: 38 },
@@ -15720,9 +15720,12 @@ var Je = class {
                 (this._drop(), this.events.push({ type: `rest` }), (c = null)))
             : (this.putTimer = 0));
       }
-      let baseSize = r * C.CIG_LENGTH;
-      let depthScale = c ? he(c.palm / (0.19 * r), 0.88, 1.15) : 1.0;
-      this.size = _e(this.size, baseSize * depthScale, C.SIZE_RATE, n);
+      let l = c
+        ? t
+          ? C.CIG_FACE_RATIO * t.faceWidth
+          : C.CIG_PALM_RATIO * c.palm
+        : r * C.CIG_LENGTH;
+      this.size = _e(this.size, he(l, 0.1 * r, 0.42 * r), C.SIZE_RATE, n);
       if (c) {
         this.pitchZ = _e(this.pitchZ || 0, c.pitchZ || 0, 18, n);
         this.rollZ = _e(this.rollZ || 0, c.rollZ || 0, 18, n);
