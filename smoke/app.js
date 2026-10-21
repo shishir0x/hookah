@@ -14343,10 +14343,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#FAF7EE`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#C68B42`,
+        rings: [`#D4AF37`, `#FFDF73`],
         print: `#8B1E2B`,
         slim: !1,
       },
@@ -14367,10 +14367,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#FFFFFF`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#B86835`,
+        rings: [`#C5A059`],
         print: `#C8102E`,
         slim: !1,
       },
@@ -14391,10 +14391,10 @@ Error generating stack: ` +
       burn: 0.9,
       burnLabel: `Slow burn`,
       stick: {
-        paper: `#FAF8F2`,
-        tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        paper: `#F7FBFD`,
+        tip: `plain`,
+        tipColor: `#FFFFFF`,
+        rings: [`#00A896`, `#38D4C8`],
         print: `#0A5C5A`,
         slim: !1,
       },
@@ -14415,10 +14415,10 @@ Error generating stack: ` +
       burn: 1.05,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#F4EFE6`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#8C4E23`,
+        rings: [`#9B2226`, `#DDA15E`],
         print: `#9B2226`,
         slim: !1,
       },
@@ -14439,10 +14439,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#FAF6ED`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#CF883C`,
+        rings: [`#8B1E2B`, `#D4AF37`],
         print: `#8B1E2B`,
         slim: !1,
       },
@@ -14463,10 +14463,10 @@ Error generating stack: ` +
       burn: 0.85,
       burnLabel: `Slow burn`,
       stick: {
-        paper: `#FAF8F2`,
-        tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        paper: `#FFFFFF`,
+        tip: `plain`,
+        tipColor: `#FCFCFC`,
+        rings: [`#2D5F9E`, `#8EB5E8`],
         print: `#2D5F9E`,
         slim: !1,
       },
@@ -14487,10 +14487,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#FAF8F3`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#BE7A36`,
+        rings: [`#1B365D`, `#E5C158`],
         print: `#1B365D`,
         slim: !1,
       },
@@ -14511,10 +14511,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#F3EBE0`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#84441D`,
+        rings: [`#A46830`, `#5A2D0A`],
         print: `#5A2D0A`,
         slim: !1,
       },
@@ -14535,10 +14535,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F2`,
+        paper: `#FFFDF5`,
         tip: `cork`,
-        tipColor: `#D08A3E`,
-        rings: [`#C9A45C`],
+        tipColor: `#E2A340`,
+        rings: [`#FFD700`, `#9E1B22`],
         print: `#9E1B22`,
         slim: !1,
       },
@@ -14551,8 +14551,7 @@ Error generating stack: ` +
       },
       smoke: { smoke: `#D3CCC4`, pale: `#EFEAE4` },
     }
-
-  ],
+  ]
   b = (e) => y.find((t) => t.id === e) || y[0],
   ee = o((e) => {
     var t = Symbol.for(`react.transitional.element`),
@@ -14693,7 +14692,7 @@ function re({ x: e, stick: t, id: n, slim: r }) {
         width: i,
         height: 30,
         rx: i / 2.4,
-        fill: a ? `url(#cork-${n})` : t.tip,
+        fill: a ? `url(#cork-${n})` : (t.tipColor || t.tip || `#FFFFFF`),
       }),
       (0, x.jsx)(`rect`, {
         x: e,
@@ -15744,7 +15743,7 @@ var Je = class {
       else {
         let e = this.grip.filter(c.points[this.kind], n);
         let targetDir = c.fingerDir || c.axis;
-        this.axisV = ge(this.axisV, targetDir, C.AXIS_RATE, n);
+        this.axisV = ge(this.axisV, targetDir, 36, n);
         let r = me(this.axisV);
         if (this.settle > 0) {
           this.settle = Math.max(0, this.settle - n);
@@ -15851,6 +15850,9 @@ var Je = class {
         exhaleRate: m,
         exhaleKind: h,
         filter: [this.filterP[0], this.filterP[1]],
+        grip: [this.pos[0], this.pos[1]],
+        gripFrac: this.gripFrac,
+        mouthBlend: this.mouthBlend,
         dir: v,
         size: _,
         width: u * C.CIG_WIDTH_RATIO,
@@ -16294,7 +16296,724 @@ function st(e) {
       n.fill());
   return t;
 }
+
+function _parseHexColor(hex, fallback) {
+  if (!hex || typeof hex !== 'string' || hex[0] !== '#') return fallback || [0.95, 0.95, 0.92];
+  let c = hex.slice(1);
+  if (c.length === 3) c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+  let num = parseInt(c, 16);
+  if (isNaN(num)) return fallback || [0.95, 0.95, 0.92];
+  return [((num >> 16) & 255) / 255, ((num >> 8) & 255) / 255, (num & 255) / 255];
+}
+
+function _vec3_normalize(out, a) {
+  let len = Math.hypot(a[0], a[1], a[2]);
+  if (len > 1e-6) {
+    out[0] = a[0] / len; out[1] = a[1] / len; out[2] = a[2] / len;
+  } else {
+    out[0] = 0; out[1] = 1; out[2] = 0;
+  }
+  return out;
+}
+
+function _vec3_cross(out, a, b) {
+  let ax = a[0], ay = a[1], az = a[2];
+  let bx = b[0], by = b[1], bz = b[2];
+  out[0] = ay * bz - az * by;
+  out[1] = az * bx - ax * bz;
+  out[2] = ax * by - ay * bx;
+  return out;
+}
+
+function _quat_fromBasis(out, ux, uy, uz) {
+  let m00 = ux[0], m01 = uy[0], m02 = uz[0];
+  let m10 = ux[1], m11 = uy[1], m12 = uz[1];
+  let m20 = ux[2], m21 = uy[2], m22 = uz[2];
+  let trace = m00 + m11 + m22;
+
+  if (trace > 0) {
+    let s = 0.5 / Math.sqrt(trace + 1.0);
+    out[3] = 0.25 / s;
+    out[0] = (m21 - m12) * s;
+    out[1] = (m02 - m20) * s;
+    out[2] = (m10 - m01) * s;
+  } else if (m00 > m11 && m00 > m22) {
+    let s = 2.0 * Math.sqrt(1.0 + m00 - m11 - m22);
+    out[3] = (m21 - m12) / s;
+    out[0] = 0.25 * s;
+    out[1] = (m01 + m10) / s;
+    out[2] = (m02 + m20) / s;
+  } else if (m11 > m22) {
+    let s = 2.0 * Math.sqrt(1.0 + m11 - m00 - m22);
+    out[3] = (m02 - m20) / s;
+    out[0] = (m01 + m10) / s;
+    out[1] = 0.25 * s;
+    out[2] = (m12 + m21) / s;
+  } else {
+    let s = 2.0 * Math.sqrt(1.0 + m22 - m00 - m11);
+    out[3] = (m10 - m01) / s;
+    out[0] = (m02 + m20) / s;
+    out[1] = (m12 + m21) / s;
+    out[2] = 0.25 * s;
+  }
+
+  let len = Math.hypot(out[0], out[1], out[2], out[3]);
+  if (len > 1e-6) {
+    out[0] /= len; out[1] /= len; out[2] /= len; out[3] /= len;
+  } else {
+    out[0] = 0; out[1] = 0; out[2] = 0; out[3] = 1;
+  }
+  return out;
+}
+
+function _quat_slerp(out, a, b, t) {
+  let ax = a[0], ay = a[1], az = a[2], aw = a[3];
+  let bx = b[0], by = b[1], bz = b[2], bw = b[3];
+  let cosOmega = ax * bx + ay * by + az * bz + aw * bw;
+  if (cosOmega < 0) {
+    cosOmega = -cosOmega;
+    bx = -bx; by = -by; bz = -bz; bw = -bw;
+  }
+  let k0, k1;
+  if (1.0 - cosOmega > 1e-4) {
+    let omega = Math.acos(cosOmega);
+    let sinOmega = Math.sin(omega);
+    k0 = Math.sin((1.0 - t) * omega) / sinOmega;
+    k1 = Math.sin(t * omega) / sinOmega;
+  } else {
+    k0 = 1.0 - t;
+    k1 = t;
+  }
+  out[0] = k0 * ax + k1 * bx;
+  out[1] = k0 * ay + k1 * by;
+  out[2] = k0 * az + k1 * bz;
+  out[3] = k0 * aw + k1 * bw;
+  return out;
+}
+
+function _mat4_fromRotationTranslation(out, q, pos) {
+  let x = q[0], y = q[1], z = q[2], w = q[3];
+  let x2 = x + x, y2 = y + y, z2 = z + z;
+  let xx = x * x2, xy = x * y2, xz = x * z2;
+  let yy = y * y2, yz = y * z2, zz = z * z2;
+  let wx = w * x2, wy = w * y2, wz = w * z2;
+
+  out[0] = 1 - (yy + zz);
+  out[1] = xy + wz;
+  out[2] = xz - wy;
+  out[3] = 0;
+
+  out[4] = xy - wz;
+  out[5] = 1 - (xx + zz);
+  out[6] = yz + wx;
+  out[7] = 0;
+
+  out[8] = xz + wy;
+  out[9] = yz - wx;
+  out[10] = 1 - (xx + yy);
+  out[11] = 0;
+
+  out[12] = pos[0];
+  out[13] = pos[1];
+  out[14] = pos[2];
+  out[15] = 1;
+  return out;
+}
+
+function _mat3_fromMat4(out, m) {
+  out[0] = m[0]; out[1] = m[1]; out[2] = m[2];
+  out[3] = m[4]; out[4] = m[5]; out[5] = m[6];
+  out[6] = m[8]; out[7] = m[9]; out[8] = m[10];
+  return out;
+}
+
+var Cigarette3DRenderer = class {
+  constructor(w, h) {
+    this.w = w || 800;
+    this.h = h || 600;
+    this.supported = false;
+    this.lastTime = 0;
+    this.hasPose = false;
+
+    this.qCurrent = new Float32Array([0, 0, 0, 1]);
+    this.qTarget = new Float32Array([0, 0, 0, 1]);
+    this.posCurrent = new Float32Array([0, 0, 0]);
+
+    this.projMatrix = new Float32Array(16);
+    this.viewMatrix = new Float32Array(16);
+    this.modelMatrix = new Float32Array(16);
+    this.normalMatrix = new Float32Array(9);
+    this.camPos = new Float32Array([0, 0, 1000]);
+
+    if (typeof document === 'undefined') return;
+
+    this.canvas = document.createElement('canvas');
+    let opts = { alpha: true, antialias: true, premultipliedAlpha: false, depth: true };
+    this.gl = this.canvas.getContext('webgl', opts) || this.canvas.getContext('experimental-webgl', opts);
+
+    if (!this.gl) return;
+    this.supported = true;
+    this._initGL();
+    this.resize(this.w, this.h);
+  }
+
+  _initGL() {
+    const gl = this.gl;
+    const vsSource = `
+      attribute vec3 aPosition;
+      attribute vec3 aNormal;
+      attribute vec2 aUV;
+      attribute float aRing;
+      attribute float aPart;
+
+      uniform mat4 uModel;
+      uniform mat4 uView;
+      uniform mat4 uProjection;
+      uniform mat3 uNormalMatrix;
+      uniform float uRadius;
+      uniform float uLength;
+      uniform float uGripFrac;
+      uniform float uFilterFrac;
+      uniform float uBurnFrac;
+      uniform float uAshFrac;
+
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      varying vec2 vUV;
+      varying float vPart;
+
+      void main() {
+        float yFrac = 0.0;
+        if (aRing < 0.5) {
+          yFrac = 0.0;
+        } else if (aRing < 1.5) {
+          yFrac = max(0.0, uFilterFrac - 0.05);
+        } else if (aRing < 2.5) {
+          yFrac = uFilterFrac;
+        } else if (aRing < 3.5) {
+          yFrac = max(uFilterFrac, uBurnFrac - 0.035);
+        } else if (aRing < 4.5) {
+          yFrac = max(uFilterFrac, uBurnFrac);
+        } else if (aRing < 5.5) {
+          yFrac = max(uFilterFrac, uAshFrac);
+        } else if (aRing < 6.5) {
+          yFrac = max(uFilterFrac, uAshFrac);
+        } else {
+          yFrac = 0.0;
+        }
+
+        vec3 localPos = aPosition;
+        localPos.x *= uRadius;
+        localPos.z *= uRadius;
+        // PIVOT DIRECTLY AROUND FINGER GRIP POINT!
+        localPos.y = (yFrac - uGripFrac) * uLength;
+
+        vec4 worldPos = uModel * vec4(localPos, 1.0);
+        vWorldPos = worldPos.xyz;
+        vNormal = normalize(uNormalMatrix * aNormal);
+        vUV = aUV;
+        vPart = aPart;
+
+        gl_Position = uProjection * uView * worldPos;
+      }
+    `;
+
+    const fsSource = `
+      precision highp float;
+
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      varying vec2 vUV;
+      varying float vPart;
+
+      uniform vec3 uCameraPos;
+      uniform vec3 uTipColor;
+      uniform vec3 uPaperColor;
+      uniform vec3 uRingColor;
+      uniform vec3 uRingColor2;
+      uniform float uEmber;
+      uniform float uDraw;
+      uniform float uTime;
+      uniform float uLit;
+      uniform float uIsCork;
+
+      float hash(vec2 p) {
+        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+      }
+
+      void main() {
+        vec3 N = normalize(vNormal);
+        vec3 V = normalize(uCameraPos - vWorldPos);
+        
+        vec3 L = normalize(vec3(0.35, 0.65, 0.65));
+        float NdotL = max(dot(N, L), 0.0);
+        float diff = NdotL * 0.65 + 0.35;
+        
+        vec3 H = normalize(L + V);
+        float NdotH = max(dot(N, H), 0.0);
+        
+        vec3 baseColor = uPaperColor;
+        float specPower = 16.0;
+        float specIntensity = 0.12;
+        vec3 emissive = vec3(0.0);
+        float noise = hash(vUV * 150.0) * 0.04 - 0.02;
+
+        if (vPart < 0.5) {
+          baseColor = uTipColor;
+          if (uIsCork > 0.5) {
+            float corkNoise = hash(floor(vUV * vec2(80.0, 40.0)));
+            if (corkNoise < 0.25) {
+              baseColor = mix(baseColor, vec3(0.36, 0.18, 0.08), 0.35);
+            } else if (corkNoise > 0.8) {
+              baseColor = mix(baseColor, vec3(0.95, 0.82, 0.65), 0.25);
+            }
+            specPower = 22.0;
+            specIntensity = 0.22;
+          } else {
+            // Smooth white / plain filter
+            specPower = 32.0;
+            specIntensity = 0.28;
+          }
+        } else if (vPart < 1.5) {
+          // Dual metallic rings
+          float ringBand = step(0.5, fract(vUV.y * 24.0));
+          baseColor = mix(uRingColor, uRingColor2, ringBand);
+          specPower = 64.0;
+          specIntensity = 0.85;
+        } else if (vPart < 2.5) {
+          baseColor = uPaperColor + vec3(noise);
+          float rib = sin(vUV.y * 320.0) * 0.012;
+          baseColor += vec3(rib);
+          specPower = 12.0;
+          specIntensity = 0.06;
+        } else if (vPart < 3.5) {
+          vec3 charDark = vec3(0.12, 0.06, 0.03);
+          float charGrad = smoothstep(0.0, 1.0, fract(vUV.y * 10.0));
+          baseColor = mix(charDark, vec3(0.24, 0.11, 0.05), charGrad);
+          if (uLit > 0.5 || uEmber > 0.05) {
+            float heat = uEmber * (0.8 + 0.2 * sin(uTime * 14.0));
+            emissive = vec3(1.0, 0.42, 0.08) * heat * 1.5;
+          }
+        } else if (vPart < 4.5) {
+          float ashNoise = hash(vUV * 100.0);
+          baseColor = mix(vec3(0.55, 0.52, 0.48), vec3(0.82, 0.79, 0.74), ashNoise);
+          specIntensity = 0.02;
+        } else if (vPart < 5.5) {
+          baseColor = uTipColor * 0.94;
+          float r = length(vUV - vec2(0.5));
+          float rings = sin(r * 32.0) * 0.025;
+          baseColor += vec3(rings);
+        } else {
+          float r = clamp(length(vUV - vec2(0.5)) * 2.0, 0.0, 1.0);
+          if (uLit > 0.5 || uEmber > 0.05) {
+            float pulse = 0.85 + 0.15 * sin(uTime * 18.0) + uDraw * 0.45;
+            vec3 hotCore = mix(vec3(1.0, 0.98, 0.8), vec3(1.0, 0.55, 0.15), r);
+            vec3 darkRim = vec3(0.35, 0.08, 0.02);
+            vec3 emberCol = mix(hotCore, darkRim, smoothstep(0.25, 0.95, r));
+            emissive = emberCol * uEmber * pulse * 2.2;
+            baseColor = mix(emissive, vec3(0.4, 0.38, 0.35), r * 0.5);
+          } else {
+            baseColor = vec3(0.35, 0.22, 0.12) + vec3(hash(vUV * 80.0) * 0.08);
+          }
+        }
+
+        vec3 spec = vec3(1.0) * pow(NdotH, specPower) * specIntensity;
+        if (vPart > 0.5 && vPart < 1.5) {
+          spec *= mix(uRingColor, uRingColor2, step(0.5, fract(vUV.y * 24.0)));
+        }
+
+        vec3 finalColor = baseColor * diff + spec + emissive;
+        gl_FragColor = vec4(finalColor, 1.0);
+      }
+    `;
+
+    function compile(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+
+    const vs = compile(gl.VERTEX_SHADER, vsSource);
+    const fs = compile(gl.FRAGMENT_SHADER, fsSource);
+    this.program = gl.createProgram();
+    gl.attachShader(this.program, vs);
+    gl.attachShader(this.program, fs);
+    gl.linkProgram(this.program);
+
+    this.aPosition = gl.getAttribLocation(this.program, "aPosition");
+    this.aNormal = gl.getAttribLocation(this.program, "aNormal");
+    this.aUV = gl.getAttribLocation(this.program, "aUV");
+    this.aRing = gl.getAttribLocation(this.program, "aRing");
+    this.aPart = gl.getAttribLocation(this.program, "aPart");
+
+    this.uModel = gl.getUniformLocation(this.program, "uModel");
+    this.uView = gl.getUniformLocation(this.program, "uView");
+    this.uProjection = gl.getUniformLocation(this.program, "uProjection");
+    this.uNormalMatrix = gl.getUniformLocation(this.program, "uNormalMatrix");
+    this.uCameraPos = gl.getUniformLocation(this.program, "uCameraPos");
+    this.uRadius = gl.getUniformLocation(this.program, "uRadius");
+    this.uLength = gl.getUniformLocation(this.program, "uLength");
+    this.uGripFrac = gl.getUniformLocation(this.program, "uGripFrac");
+    this.uFilterFrac = gl.getUniformLocation(this.program, "uFilterFrac");
+    this.uBurnFrac = gl.getUniformLocation(this.program, "uBurnFrac");
+    this.uAshFrac = gl.getUniformLocation(this.program, "uAshFrac");
+    this.uTipColor = gl.getUniformLocation(this.program, "uTipColor");
+    this.uPaperColor = gl.getUniformLocation(this.program, "uPaperColor");
+    this.uRingColor = gl.getUniformLocation(this.program, "uRingColor");
+    this.uRingColor2 = gl.getUniformLocation(this.program, "uRingColor2");
+    this.uEmber = gl.getUniformLocation(this.program, "uEmber");
+    this.uDraw = gl.getUniformLocation(this.program, "uDraw");
+    this.uTime = gl.getUniformLocation(this.program, "uTime");
+    this.uLit = gl.getUniformLocation(this.program, "uLit");
+    this.uIsCork = gl.getUniformLocation(this.program, "uIsCork");
+
+    const SLICES = 32;
+    const vboData = [];
+    const indices = [];
+
+    const ringDefs = [
+      { ring: 0.0, part: 0.0, v: 0.0 },
+      { ring: 1.0, part: 0.0, v: 0.23 },
+      { ring: 2.0, part: 1.0, v: 0.28 },
+      { ring: 3.0, part: 2.0, v: 0.8 },
+      { ring: 4.0, part: 3.0, v: 0.85 },
+      { ring: 5.0, part: 4.0, v: 1.0 },
+    ];
+
+    for (let r = 0; r < ringDefs.length; r++) {
+      const def = ringDefs[r];
+      for (let s = 0; s <= SLICES; s++) {
+        const u = s / SLICES;
+        const angle = u * Math.PI * 2.0;
+        const c = Math.cos(angle);
+        const si = Math.sin(angle);
+        vboData.push(
+          c, 0.0, si,
+          c, 0.0, si,
+          u, def.v,
+          def.ring,
+          def.part
+        );
+      }
+    }
+
+    for (let r = 0; r < ringDefs.length - 1; r++) {
+      const row1 = r * (SLICES + 1);
+      const row2 = (r + 1) * (SLICES + 1);
+      for (let s = 0; s < SLICES; s++) {
+        const i0 = row1 + s;
+        const i1 = row2 + s;
+        const i2 = row2 + s + 1;
+        const i3 = row1 + s + 1;
+        indices.push(i0, i1, i2);
+        indices.push(i0, i2, i3);
+      }
+    }
+
+    // Top Cap
+    const topCenterIdx = vboData.length / 10;
+    vboData.push(
+      0.0, 0.0, 0.0,
+      0.0, 1.0, 0.0,
+      0.5, 0.5,
+      6.0, 6.0
+    );
+    const topRingStart = vboData.length / 10;
+    for (let s = 0; s <= SLICES; s++) {
+      const u = s / SLICES;
+      const angle = u * Math.PI * 2.0;
+      const c = Math.cos(angle);
+      const si = Math.sin(angle);
+      vboData.push(
+        c, 0.0, si,
+        0.0, 1.0, 0.0,
+        0.5 + 0.5 * c, 0.5 + 0.5 * si,
+        6.0, 6.0
+      );
+    }
+    for (let s = 0; s < SLICES; s++) {
+      indices.push(topCenterIdx, topRingStart + s, topRingStart + s + 1);
+    }
+
+    // Bottom Cap
+    const botCenterIdx = vboData.length / 10;
+    vboData.push(
+      0.0, 0.0, 0.0,
+      0.0, -1.0, 0.0,
+      0.5, 0.5,
+      7.0, 5.0
+    );
+    const botRingStart = vboData.length / 10;
+    for (let s = 0; s <= SLICES; s++) {
+      const u = s / SLICES;
+      const angle = u * Math.PI * 2.0;
+      const c = Math.cos(angle);
+      const si = Math.sin(angle);
+      vboData.push(
+        c, 0.0, si,
+        0.0, -1.0, 0.0,
+        0.5 + 0.5 * c, 0.5 + 0.5 * si,
+        7.0, 5.0
+      );
+    }
+    for (let s = 0; s < SLICES; s++) {
+      indices.push(botCenterIdx, botRingStart + s + 1, botRingStart + s);
+    }
+
+    this.vbo = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vboData), gl.STATIC_DRAW);
+
+    this.ibo = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.ibo);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+    this.indexCount = indices.length;
+
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
+    gl.enable(gl.CULL_FACE);
+    gl.cullFace(gl.BACK);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
+  }
+
+  resize(w, h) {
+    this.w = w;
+    this.h = h;
+    if (!this.supported) return;
+    this.canvas.width = w;
+    this.canvas.height = h;
+
+    const gl = this.gl;
+    gl.viewport(0, 0, w, h);
+
+    const fov = 46.0 * Math.PI / 180.0;
+    const f = 1.0 / Math.tan(fov / 2.0);
+    const aspect = w / h;
+    const near = 10.0;
+    const far = 5000.0;
+
+    this.projMatrix.fill(0);
+    this.projMatrix[0] = f / aspect;
+    this.projMatrix[5] = f;
+    this.projMatrix[10] = -(far + near) / (far - near);
+    this.projMatrix[11] = -1.0;
+    this.projMatrix[14] = -2.0 * far * near / (far - near);
+
+    const camDist = (h / 2.0) * f;
+    this.camPos[0] = 0;
+    this.camPos[1] = 0;
+    this.camPos[2] = camDist;
+
+    this.viewMatrix.fill(0);
+    this.viewMatrix[0] = 1.0;
+    this.viewMatrix[5] = 1.0;
+    this.viewMatrix[10] = 1.0;
+    this.viewMatrix[14] = -camDist;
+    this.viewMatrix[15] = 1.0;
+  }
+
+  reset() {
+    this.qCurrent.set([0, 0, 0, 1]);
+    this.qTarget.set([0, 0, 0, 1]);
+    this.posCurrent.set([0, 0, 0]);
+    this.hasPose = false;
+  }
+
+  render(ctx, state, brand, time) {
+    if (!this.supported) return;
+
+    let dt = Math.max(0.001, Math.min(0.05, time - this.lastTime));
+    this.lastTime = time;
+
+    let h = state.hand;
+    let pZ = 0.0;
+
+    let dir = state.dir || [0, -1];
+    let pitchVal = Math.min(0.85, Math.max(-0.85, state.pitch || 0));
+    let pitchAngle = Math.asin(pitchVal);
+    let cosP = Math.cos(pitchAngle);
+    let sinP = Math.sin(pitchAngle);
+
+    // 1. Longitudinal Unit Vector uY (Filter -> Lit Tip) in 3D WebGL Camera Space
+    let uY = [
+      dir[0] * cosP,
+      -dir[1] * cosP, // Invert Y for WebGL
+      sinP
+    ];
+    _vec3_normalize(uY, uY);
+
+    // 2. Transverse Vector uX & Normal uZ derived robustly from palm roll and direction
+    let rollVal = Math.min(1.0, Math.max(-1.0, state.roll || 0));
+    let rollAngle = rollVal * 0.85;
+    let perpX = -dir[1];
+    let perpY = -dir[0];
+    let palm = [
+      perpX * Math.sin(rollAngle),
+      perpY * Math.sin(rollAngle),
+      Math.cos(rollAngle)
+    ];
+
+    let uX = [
+      uY[1] * palm[2] - uY[2] * palm[1],
+      uY[2] * palm[0] - uY[0] * palm[2],
+      uY[0] * palm[1] - uY[1] * palm[0]
+    ];
+    let uxLen = Math.hypot(uX[0], uX[1], uX[2]);
+    if (uxLen < 1e-4) {
+      _vec3_cross(uX, uY, [0, 0, 1]);
+    }
+    _vec3_normalize(uX, uX);
+
+    let uZ = [
+      uX[1] * uY[2] - uX[2] * uY[1],
+      uX[2] * uY[0] - uX[0] * uY[2],
+      uX[0] * uY[1] - uX[1] * uY[0]
+    ];
+    _vec3_normalize(uZ, uZ);
+
+    _vec3_cross(uX, uY, uZ);
+    _vec3_normalize(uX, uX);
+
+    _quat_fromBasis(this.qTarget, uX, uY, uZ);
+
+    if (h && h.landmarks && h.landmarks.length >= 21) {
+      let lm = h.landmarks;
+      let palmRef = 0.19 * this.h;
+      let palmScale = (h.palm || palmRef) / palmRef;
+      pZ = (palmScale - 1.0) * 320.0 + (lm[0][2] || 0) * 160.0;
+      pZ = Math.max(-350.0, Math.min(350.0, pZ));
+    }
+
+    const stick = (brand && brand.stick) ? brand.stick : {};
+    const isSlim = !!stick.slim;
+    const radius = (isSlim ? 0.72 : 1.0) * (state.width / 2.0);
+    const len = state.size;
+    const gripFrac = state.gripFrac || C.GRIP_FRAC.vee;
+
+    // Anchor directly at finger grip point
+    let anchorX, anchorY;
+    if (state.mouthBlend > 0.01 && state.filter) {
+      anchorX = state.filter[0] + uY[0] * (gripFrac * len);
+      anchorY = state.filter[1] - uY[1] * (gripFrac * len);
+    } else if (state.grip) {
+      anchorX = state.grip[0];
+      anchorY = state.grip[1];
+    } else {
+      anchorX = state.filter[0] + uY[0] * (gripFrac * len);
+      anchorY = state.filter[1] - uY[1] * (gripFrac * len);
+    }
+
+    let targetX = anchorX - this.w / 2.0;
+    let targetY = this.h / 2.0 - anchorY;
+    let targetZ = pZ;
+
+    if (!this.hasPose) {
+      this.qCurrent.set(this.qTarget);
+      this.posCurrent[0] = targetX;
+      this.posCurrent[1] = targetY;
+      this.posCurrent[2] = targetZ;
+      this.hasPose = true;
+    } else {
+      // Snappy, smooth rotation slerp
+      let slerpAlpha = 1.0 - Math.exp(-36.0 * dt);
+      _quat_slerp(this.qCurrent, this.qCurrent, this.qTarget, slerpAlpha);
+
+      // Instantaneous 1:1 finger anchor follow (state.grip is already 1€-filtered)
+      this.posCurrent[0] = targetX;
+      this.posCurrent[1] = targetY;
+      this.posCurrent[2] = targetZ;
+    }
+
+    _mat4_fromRotationTranslation(this.modelMatrix, this.qCurrent, this.posCurrent);
+    _mat3_fromMat4(this.normalMatrix, this.modelMatrix);
+
+    const gl = this.gl;
+    gl.useProgram(this.program);
+
+    gl.uniformMatrix4fv(this.uProjection, false, this.projMatrix);
+    gl.uniformMatrix4fv(this.uView, false, this.viewMatrix);
+    gl.uniformMatrix4fv(this.uModel, false, this.modelMatrix);
+    gl.uniformMatrix3fv(this.uNormalMatrix, false, this.normalMatrix);
+    gl.uniform3fv(this.uCameraPos, this.camPos);
+
+    gl.uniform1f(this.uRadius, radius);
+    gl.uniform1f(this.uLength, len);
+    gl.uniform1f(this.uGripFrac, gripFrac);
+    gl.uniform1f(this.uFilterFrac, C.FILTER_FRAC);
+
+    const burnFrac = C.FILTER_FRAC + (1.0 - C.FILTER_FRAC) * state.remaining;
+    const ashFrac = burnFrac + (1.0 - C.FILTER_FRAC) * state.ash;
+    gl.uniform1f(this.uBurnFrac, burnFrac);
+    gl.uniform1f(this.uAshFrac, ashFrac);
+
+    const tipCol = _parseHexColor(stick.tipColor || stick.tip || "#C48D58", [0.77, 0.55, 0.35]);
+    const paperCol = _parseHexColor(stick.paper || "#FFFFE3", [0.98, 0.97, 0.94]);
+    const ringCol = _parseHexColor(stick.rings?.[0] || "#D4AF37", [0.83, 0.69, 0.22]);
+    const ringCol2 = _parseHexColor(stick.rings?.[1] || stick.rings?.[0] || "#D4AF37", ringCol);
+
+    gl.uniform3fv(this.uTipColor, tipCol);
+    gl.uniform3fv(this.uPaperColor, paperCol);
+    gl.uniform3fv(this.uRingColor, ringCol);
+    gl.uniform3fv(this.uRingColor2, ringCol2);
+
+    gl.uniform1f(this.uEmber, state.lighting ? state.lightProgress * 0.7 : state.ember);
+    gl.uniform1f(this.uDraw, state.drawIntensity || 0.0);
+    gl.uniform1f(this.uTime, time);
+    gl.uniform1f(this.uLit, state.lit ? 1.0 : 0.0);
+    gl.uniform1f(this.uIsCork, stick.tip === "cork" ? 1.0 : 0.0);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
+    const stride = 40;
+    gl.enableVertexAttribArray(this.aPosition);
+    gl.vertexAttribPointer(this.aPosition, 3, gl.FLOAT, false, stride, 0);
+
+    gl.enableVertexAttribArray(this.aNormal);
+    gl.vertexAttribPointer(this.aNormal, 3, gl.FLOAT, false, stride, 12);
+
+    gl.enableVertexAttribArray(this.aUV);
+    gl.vertexAttribPointer(this.aUV, 2, gl.FLOAT, false, stride, 24);
+
+    gl.enableVertexAttribArray(this.aRing);
+    gl.vertexAttribPointer(this.aRing, 1, gl.FLOAT, false, stride, 32);
+
+    gl.enableVertexAttribArray(this.aPart);
+    gl.vertexAttribPointer(this.aPart, 1, gl.FLOAT, false, stride, 36);
+
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.ibo);
+
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    gl.drawElements(gl.TRIANGLES, this.indexCount, gl.UNSIGNED_SHORT, 0);
+
+    ctx.save();
+    ctx.translate(anchorX, anchorY);
+    ctx.rotate(Math.atan2(dir[1], dir[0]));
+    let shadowAlpha = Math.max(0.1, 0.28 - (this.posCurrent[2] / 500.0));
+    ctx.fillStyle = `rgba(14, 14, 20, ${shadowAlpha})`;
+    ctx.shadowColor = `rgba(14, 14, 20, ${shadowAlpha * 0.9})`;
+    ctx.shadowBlur = radius * 1.5;
+    ctx.shadowOffsetY = radius * 0.4;
+    let shadowStart = -gripFrac * len;
+    let shadowLen = len * (ashFrac);
+    ctx.fillRect(shadowStart, -radius * 0.7, shadowLen, radius * 1.4);
+    ctx.restore();
+
+    ctx.drawImage(this.canvas, 0, 0, this.w, this.h);
+  }
+
+  destroy() {
+    if (!this.supported) return;
+    const gl = this.gl;
+    gl.deleteBuffer(this.vbo);
+    gl.deleteBuffer(this.ibo);
+    gl.deleteProgram(this.program);
+  }
+};
+
 var ct = class {
+    destroy() {
+      this.cig3D?.destroy();
+    }
     constructor(e, t, n) {
       ((this.W = e), (this.H = t), (this.U = Math.min(t, e * 1.25)));
       let r = this.U;
@@ -16313,6 +17032,7 @@ var ct = class {
         restGrip: ce(c, ue(a, C.GRIP_FRAC.vee * s)),
       }),
         (this.smoke = new it(e, t, r, Xe)),
+        (this.cig3D = new Cigarette3DRenderer(e, t)),
         (this.t = 0),
         this.setBrand(n),
         this.reset());
@@ -16331,6 +17051,7 @@ var ct = class {
     }
     reset() {
       (this.smoke.reset(),
+        this.cig3D?.reset(),
         (this.flakes = []),
         (this.trayAsh = []),
         (this.sparks = []),
@@ -16580,6 +17301,10 @@ var ct = class {
         e.restore());
     }
     _drawCig(e, t, n) {
+      if (this.cig3D && this.cig3D.supported) {
+        this.cig3D.render(e, t, this.brand, n);
+        return;
+      }
       let r = this.brand.stick,
         i = t.size,
         a = r.slim ? t.width * 0.72 : t.width,
@@ -27669,6 +28394,7 @@ var Gf = class {
         document.addEventListener(`visibilitychange`, this._onVisible));
     }
     destroy() {
+      this.scene?.destroy?.();
       ((this.destroyed = !0),
         cancelAnimationFrame(this.raf),
         removeEventListener(`resize`, this._onResize),
