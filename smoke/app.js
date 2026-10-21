@@ -14343,10 +14343,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF7EE`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#C68B42`,
-        rings: [`#D4AF37`, `#FFDF73`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#8B1E2B`,
         slim: !1,
       },
@@ -14367,10 +14367,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FFFFFF`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#B86835`,
-        rings: [`#C5A059`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#C8102E`,
         slim: !1,
       },
@@ -14391,10 +14391,10 @@ Error generating stack: ` +
       burn: 0.9,
       burnLabel: `Slow burn`,
       stick: {
-        paper: `#F7FBFD`,
-        tip: `plain`,
-        tipColor: `#FFFFFF`,
-        rings: [`#00A896`, `#38D4C8`],
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#0A5C5A`,
         slim: !1,
       },
@@ -14415,10 +14415,10 @@ Error generating stack: ` +
       burn: 1.05,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#F4EFE6`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#8C4E23`,
-        rings: [`#9B2226`, `#DDA15E`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#9B2226`,
         slim: !1,
       },
@@ -14439,10 +14439,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF6ED`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#CF883C`,
-        rings: [`#8B1E2B`, `#D4AF37`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#8B1E2B`,
         slim: !1,
       },
@@ -14463,10 +14463,10 @@ Error generating stack: ` +
       burn: 0.85,
       burnLabel: `Slow burn`,
       stick: {
-        paper: `#FFFFFF`,
-        tip: `plain`,
-        tipColor: `#FCFCFC`,
-        rings: [`#2D5F9E`, `#8EB5E8`],
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#2D5F9E`,
         slim: !1,
       },
@@ -14487,10 +14487,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FAF8F3`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#BE7A36`,
-        rings: [`#1B365D`, `#E5C158`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#1B365D`,
         slim: !1,
       },
@@ -14511,10 +14511,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#F3EBE0`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#84441D`,
-        rings: [`#A46830`, `#5A2D0A`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#5A2D0A`,
         slim: !1,
       },
@@ -14535,10 +14535,10 @@ Error generating stack: ` +
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#FFFDF5`,
+        paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#E2A340`,
-        rings: [`#FFD700`, `#9E1B22`],
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
         print: `#9E1B22`,
         slim: !1,
       },
@@ -17296,10 +17296,6 @@ var ct = class {
         e.restore());
     }
     _drawCig(e, t, n) {
-      if (this.cig3D && this.cig3D.supported) {
-        this.cig3D.render(e, t, this.brand, n);
-        return;
-      }
       let r = this.brand.stick,
         i = t.size,
         a = r.slim ? t.width * 0.72 : t.width,
@@ -17492,10 +17488,7 @@ var ct = class {
       e.save();
       let c = a * 0.75,
         l = a * 1.6;
-      ((e.fillStyle =
-        this.brand.pack.accent === `#F4FAF7`
-          ? this.brand.pack.body
-          : this.brand.pack.accent),
+      ((e.fillStyle = `#C8102E`),
         ot(e, s - c / 2, o + a * 0.18, c, l, c * 0.18),
         e.fill(),
         (e.fillStyle = `#b8b8bc`),
