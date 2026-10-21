@@ -14336,14 +14336,38 @@ Error generating stack: ` +
   v = c(g(), 1),
   y = [
     {
-      id: `red-classic`,
-      name: `Red Classic`,
-      line: `Full Flavour`,
+      id: `surya-24k`,
+      name: `Surya`,
+      line: `24 Karat`,
+      tagline: `Nepal's gold standard`,
+      burn: 1,
+      burnLabel: `Medium burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#8B1E2B`,
+        slim: !1,
+      },
+      pack: {
+        style: `crest`,
+        body: `#78141D`,
+        accent: `#D4AF37`,
+        ink: `#FFF8E7`,
+        foil: `#E5C158`,
+      },
+      smoke: { smoke: `#D0C8BE`, pale: `#EDE6DC`, intensity: 1 },
+    },
+    {
+      id: `marlboro-red`,
+      name: `Marlboro`,
+      line: `Red`,
       tagline: `The full-flavour legend`,
       burn: 1,
       burnLabel: `Medium burn`,
       stick: {
-        paper: `#F7F4EC`,
+        paper: `#FAF8F2`,
         tip: `cork`,
         tipColor: `#D08A3E`,
         rings: [`#C9A45C`],
@@ -14360,169 +14384,174 @@ Error generating stack: ` +
       smoke: { smoke: `#D3CCC4`, pale: `#EFEAE4` },
     },
     {
-      id: `gold-lights`,
-      name: `Gold Lights`,
-      line: `Smooth`,
-      tagline: `Smooth & easy going`,
+      id: `shikhar-ice`,
+      name: `Shikhar`,
+      line: `Ice Cool`,
+      tagline: `Glacial menthol burst`,
+      burn: 0.9,
+      burnLabel: `Slow burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#0A5C5A`,
+        slim: !1,
+      },
+      pack: {
+        style: `band`,
+        body: `#0A5C5A`,
+        accent: `#38D4C8`,
+        ink: `#E8FCF9`,
+        foil: `#7CEBE2`,
+      },
+      smoke: { smoke: `#C3DDD5`, pale: `#E8F5F1`, curl: 0.8 },
+    },
+    {
+      id: `pilot-filter`,
+      name: `Pilot`,
+      line: `Filter`,
+      tagline: `Classic bold smoke`,
+      burn: 1.05,
+      burnLabel: `Medium burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#9B2226`,
+        slim: !1,
+      },
+      pack: {
+        style: `emblem`,
+        body: `#9B2226`,
+        accent: `#E9D8A6`,
+        ink: `#001219`,
+        foil: `#EE9B00`,
+      },
+      smoke: { smoke: `#C8B299`, pale: `#E9DCCB` },
+    },
+    {
+      id: `surya-luxury`,
+      name: `Surya`,
+      line: `Luxury Kings`,
+      tagline: `Nepal's #1 classic king`,
+      burn: 1,
+      burnLabel: `Medium burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#8B1E2B`,
+        slim: !1,
+      },
+      pack: {
+        style: `crest`,
+        body: `#8B1E2B`,
+        accent: `#C9A45C`,
+        ink: `#FDFBF7`,
+        foil: `#D4AF37`,
+      },
+      smoke: { smoke: `#D0C8BE`, pale: `#EDE6DC` },
+    },
+    {
+      id: `surya-lights`,
+      name: `Surya`,
+      line: `Lights`,
+      tagline: `Smooth Virginia leaf`,
       burn: 0.85,
       burnLabel: `Slow burn`,
       stick: {
         paper: `#FAF8F2`,
         tip: `cork`,
-        tipColor: `#DDB37A`,
-        rings: [`#C9A45C`, `#C9A45C`],
-        print: `#B08A2E`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#2D5F9E`,
         slim: !1,
       },
       pack: {
-        style: `roof`,
-        body: `#F9F7F0`,
-        accent: `#C9A227`,
-        ink: `#3A2E10`,
-        foil: `#E6CD7A`,
+        style: `band`,
+        body: `#F4F6F9`,
+        accent: `#2D5F9E`,
+        ink: `#1E3A5F`,
+        foil: `#7EA6D9`,
       },
       smoke: { smoke: `#E3DCCB`, pale: `#F7F2E6`, intensity: 0.85, life: 0.9 },
     },
     {
-      id: `arctic-menthol`,
-      name: `Arctic`,
-      line: `Menthol`,
-      tagline: `Ice-cold menthol hit`,
-      burn: 0.9,
-      burnLabel: `Slow burn`,
+      id: `shikhar-kings`,
+      name: `Shikhar`,
+      line: `Filter Kings`,
+      tagline: `Iconic mountain blend`,
+      burn: 1,
+      burnLabel: `Medium burn`,
       stick: {
-        paper: `#F4FAF7`,
-        tip: `#EAF2EE`,
-        rings: [`#0E7C66`],
-        print: `#0E7C66`,
-        slim: !1,
-      },
-      pack: {
-        style: `band`,
-        body: `#0E7C66`,
-        accent: `#F4FAF7`,
-        ink: `#F4FAF7`,
-        foil: `#9FD8C8`,
-      },
-      smoke: { smoke: `#C3DDD5`, pale: `#E8F5F1`, curl: 0.8 },
-    },
-    {
-      id: `midnight-black`,
-      name: `Midnight`,
-      line: `Black Label`,
-      tagline: `Premium black label`,
-      burn: 1.1,
-      burnLabel: `Fast burn`,
-      stick: {
-        paper: `#2E2E31`,
-        tip: `#161618`,
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
         rings: [`#C9A45C`],
-        print: `#C9A45C`,
+        print: `#1B365D`,
         slim: !1,
       },
       pack: {
         style: `crest`,
-        body: `#151517`,
-        accent: `#C9A45C`,
-        ink: `#E6CD7A`,
-        foil: `#C9A45C`,
-      },
-      smoke: { smoke: `#B5B6C4`, pale: `#DADBE6`, intensity: 1.15 },
-    },
-    {
-      id: `desert-gold`,
-      name: `Desert`,
-      line: `Turkish Blend`,
-      tagline: `Rich Turkish blend`,
-      burn: 1,
-      burnLabel: `Medium burn`,
-      stick: {
-        paper: `#F6F1E4`,
-        tip: `cork`,
-        tipColor: `#B97836`,
-        rings: [],
-        print: `#6B3E1E`,
-        slim: !1,
-      },
-      pack: {
-        style: `emblem`,
-        body: `#D9B77B`,
-        accent: `#6B3E1E`,
-        ink: `#3E230F`,
-        foil: `#F2DFB4`,
-      },
-      smoke: { smoke: `#D6C5AC`, pale: `#F0E5D4`, life: 1.1 },
-    },
-    {
-      id: `silk-slims`,
-      name: `Silk`,
-      line: `Superslims`,
-      tagline: `Elegant & slim`,
-      burn: 0.8,
-      burnLabel: `Slow burn`,
-      stick: {
-        paper: `#FBF8F3`,
-        tip: `#F2E6EA`,
-        rings: [`#D4718C`],
-        print: `#D4718C`,
-        slim: !0,
-      },
-      pack: {
-        style: `slim`,
-        body: `#FBF7F2`,
-        accent: `#D4718C`,
-        ink: `#5A2D3A`,
-        foil: `#E9C3CF`,
-      },
-      smoke: { smoke: `#E6D1DA`, pale: `#F7ECF1`, intensity: 0.8 },
-    },
-    {
-      id: `clove-spice`,
-      name: `Kretek`,
-      line: `Clove`,
-      tagline: `Sweet clove crackle`,
-      burn: 1.15,
-      burnLabel: `Fast burn`,
-      stick: {
-        paper: `#3A2418`,
-        tip: `#1E120C`,
-        rings: [`#B8322A`],
-        print: `#C9A45C`,
-        slim: !1,
-      },
-      pack: {
-        style: `band`,
-        body: `#24160F`,
-        accent: `#B8322A`,
-        ink: `#F2DFB4`,
-        foil: `#C9A45C`,
-      },
-      smoke: { smoke: `#C8B299`, pale: `#E9DCCB`, intensity: 1.2, curl: 1.3 },
-    },
-    {
-      id: `royal-blue`,
-      name: `Royal`,
-      line: `King Size`,
-      tagline: `Bold & deep`,
-      burn: 1,
-      burnLabel: `Medium burn`,
-      stick: {
-        paper: `#F7F8FB`,
-        tip: `cork`,
-        tipColor: `#C98B45`,
-        rings: [`#1F3A8A`],
-        print: `#1F3A8A`,
-        slim: !1,
-      },
-      pack: {
-        style: `crest`,
-        body: `#1F3A8A`,
-        accent: `#F2F4F8`,
-        ink: `#F2F4F8`,
+        body: `#1B365D`,
+        accent: `#D4AF37`,
+        ink: `#F4F6FB`,
         foil: `#C9A45C`,
       },
       smoke: { smoke: `#C2CAE0`, pale: `#E5E9F5` },
     },
+    {
+      id: `khukuri-filter`,
+      name: `Khukuri`,
+      line: `Filter`,
+      tagline: `Heritage valley blend`,
+      burn: 1,
+      burnLabel: `Medium burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#5A2D0A`,
+        slim: !1,
+      },
+      pack: {
+        style: `emblem`,
+        body: `#C29853`,
+        accent: `#5A2D0A`,
+        ink: `#3A1E06`,
+        foil: `#E6CD7A`,
+      },
+      smoke: { smoke: `#D6C5AC`, pale: `#F0E5D4`, life: 1.1 },
+    },
+    {
+      id: `gold-flake`,
+      name: `Gold Flake`,
+      line: `Kings`,
+      tagline: `Rich honeydew leaf`,
+      burn: 1,
+      burnLabel: `Medium burn`,
+      stick: {
+        paper: `#FAF8F2`,
+        tip: `cork`,
+        tipColor: `#D08A3E`,
+        rings: [`#C9A45C`],
+        print: `#9E1B22`,
+        slim: !1,
+      },
+      pack: {
+        style: `band`,
+        body: `#E6B800`,
+        accent: `#9E1B22`,
+        ink: `#2E1400`,
+        foil: `#FFE680`,
+      },
+      smoke: { smoke: `#D3CCC4`, pale: `#EFEAE4` },
+    }
+
   ],
   b = (e) => y.find((t) => t.id === e) || y[0],
   ee = o((e) => {
@@ -15267,26 +15296,26 @@ var oe =
     SLOW_FPS: 28,
     SLOW_FPS_TIME: 2.5,
     LOW_QUALITY: 0.55,
-    GRIP_MIN_CUTOFF: 1.6,
-    GRIP_BETA: 0.012,
-    SETTLE_TIME: 0.22,
-    AXIS_RATE: 16,
-    MOUTH_BLEND_RATE: 12,
-    SNAP_RATE: 13,
+    GRIP_MIN_CUTOFF: 3.2,
+    GRIP_BETA: 0.035,
+    SETTLE_TIME: 0.08,
+    AXIS_RATE: 22,
+    MOUTH_BLEND_RATE: 14,
+    SNAP_RATE: 16,
     RETURN_RATE: 5,
-    SIZE_RATE: 4,
+    SIZE_RATE: 6,
     FACE_SMOOTHING: 0.5,
-    DETECT_BUDGET_MS: 24,
-    PICKUP_RADIUS: 0.20,
-    REACH_RADIUS: 0.80,
-    REACH_TIME: 0.22,
-    HOLD_ON: 0.48,
-    HOLD_OFF: 0.28,
+    DETECT_BUDGET_MS: 60,
+    PICKUP_RADIUS: 0.35,
+    REACH_RADIUS: 3.50,
+    REACH_TIME: 0.08,
+    HOLD_ON: 0.25,
+    HOLD_OFF: 0.15,
     HOLD_SWITCH: 0.25,
-    OPEN_DROP: 0.75,
-    OPEN_DROP_TIME: 0.3,
+    OPEN_DROP: 0.90,
+    OPEN_DROP_TIME: 0.6,
     LOST_AFTER: 0.8,
-    FOLLOW_RADIUS: 0.85,
+    FOLLOW_RADIUS: 2.5,
     PUTDOWN_TIME: 0.7,
     REGRAB_COOLDOWN: 0.9,
     AT_MOUTH_DISTANCE: 0.45,
@@ -15420,22 +15449,22 @@ var ve = (e, t) => 1 / (1 + 1 / (2 * Math.PI * e * t)),
     return [t / e.length, n / e.length];
   },
   Le = (e, [t, , , n]) => pe(e[n], e[xe]) / (pe(e[t], e[xe]) + 1e-6),
-  Re = (e, t) => he((Le(e, t) - 1.3) / 0.4, 0, 1),
+  Re = (e, t) => he((Le(e, t) - 1.15) / 0.35, 0, 1),
   ze = (e, t, n) => he((n - e) / (n - t), 0, 1);
 function Be(e) {
   let t = pe(e[xe], e[we[0]]) + 1e-6,
-    n = he((Le(e, Ce) - 1.12) / 0.2, 0, 1),
-    r = he((Le(e, we) - 1.12) / 0.2, 0, 1),
+    n = he((Le(e, Ce) - 1.08) / 0.2, 0, 1),
+    r = he((Le(e, we) - 1.08) / 0.2, 0, 1),
     i = pe(e[Se], e[Ce[3]]) / t,
     a = pe(e[Se], e[we[3]]) / t,
     o = Math.min(Re(e, Te), Re(e, Ee)),
     s = {
       vee:
         Math.min(Re(e, Ce), Re(e, we)) *
-        (1 - 0.8 * o) *
-        he((i - 0.35) / 0.2, 0, 1),
-      tri: ze(Math.max(i, a), 0.3, 0.6) * Math.min(n, r),
-      pinch: ze(i, 0.2, 0.45) * n * (1 - ze(a, 0.3, 0.6)),
+        (1 - 0.45 * o) *
+        he((i - 0.22) / 0.2, 0, 1),
+      tri: ze(Math.max(i, a), 0.25, 0.65) * Math.min(n, r),
+      pinch: ze(i, 0.15, 0.65) * Math.max(n, 0.6) * (1 - ze(a, 0.25, 0.7)),
     },
     c =
       Math.min(Re(e, Ce), Re(e, we), Re(e, Te), Re(e, Ee)) *
@@ -15452,6 +15481,14 @@ function Be(e) {
     },
     h = `vee`;
   for (let e of Fe) s[e] > s[h] && (h = e);
+  let fTip = h === `pinch` ? Ie(e[Se], e[Ce[3]]) : Ie(e[Ce[3]], e[we[3]]),
+    fBase = h === `pinch` ? e[Ce[0]] : Ie(e[Ce[0]], e[we[0]]),
+    fdx = fTip[0] - fBase[0],
+    fdy = fTip[1] - fBase[1],
+    fdlen = Math.hypot(fdx, fdy) || 1e-4,
+    fDir = [fdx / fdlen, fdy / fdlen],
+    pZ = he(((fBase[2] || 0) - (fTip[2] || 0)) * 4.2, -1, 1),
+    rZ = he(((e[Ce[0]][2] || 0) - (e[Ee[0]][2] || 0)) * 4.2, -1, 1);
   return {
     scores: s,
     points: m,
@@ -15460,7 +15497,10 @@ function Be(e) {
     holdPoint: m[h],
     open: c,
     axis: l,
+    fingerDir: fDir,
     side: p,
+    pitchZ: pZ,
+    rollZ: rZ,
     center: Ie(e[xe], e[Ce[0]], e[we[0]], e[Ee[0]]),
     palm: t,
     landmarks: e,
@@ -15560,31 +15600,28 @@ var Je = class {
       let n = this.layout.U;
       if (!this.held) {
         if (this.cooldown > 0 || this.finished) return null;
-        let r = e.filter((e) => e.hold >= C.HOLD_ON);
+        let r = e.filter((e) => e.hold >= C.HOLD_ON || Math.max(e.scores?.vee || 0, e.scores?.tri || 0, e.scores?.pinch || 0) >= 0.20);
         if (!r.length)
           return ((this.reachTimer = 0), (this.reachPoint = null), null);
-        r.sort((e, t) => pe(e.holdPoint, this.pos) - pe(t.holdPoint, this.pos));
-        let i = r[0],
-          a = pe(i.holdPoint, this.pos),
-          pRadius = Math.max(C.PICKUP_RADIUS * n, (i.span || 0) * 1.5),
-          rRadius = Math.max(C.REACH_RADIUS * n, (i.span || 0) * 6, 650);
-        if (a < pRadius) return this._grab(i);
-        if (a < rRadius) {
-          if (
-            ((this.reachTimer += t),
-            (this.reachPoint = i.holdPoint),
-            this.reachTimer >= C.REACH_TIME)
-          )
-            return this._grab(i);
-        } else ((this.reachTimer = 0), (this.reachPoint = a < rRadius * 1.2 ? i.holdPoint : null));
+        r.sort((a, b) => b.hold - a.hold);
+        let i = r[0];
+        this.reachPoint = i.holdPoint;
+        this.reachTimer += t;
+        if (this.reachTimer >= C.REACH_TIME) {
+          return this._grab(i);
+        }
         return null;
       }
       let r = this.held.center,
-        i = null,
-        a = Math.max(C.FOLLOW_RADIUS * n, 500);
-      for (let t of e) {
-        let e = pe(t.center, r);
-        e < a && ((i = t), (a = e));
+        i = null;
+      if (e.length === 1) {
+        i = e[0];
+      } else {
+        let a = 1e9;
+        for (let t of e) {
+          let d = pe(t.center, r);
+          d < a && ((i = t), (a = d));
+        }
       }
       if (!i)
         return (
@@ -15602,13 +15639,14 @@ var Je = class {
         (e, t) => (i.scores[t] > i.scores[e] ? t : e),
         this.kind,
       );
-      return (
+      if (
         o !== this.kind &&
-          i.scores[o] >= C.HOLD_ON &&
-          i.scores[o] > i.scores[this.kind] + C.HOLD_SWITCH &&
-          ((this.kind = o), this._startSettle()),
-        i
-      );
+        i.scores[o] >= C.HOLD_ON &&
+        i.scores[o] > i.scores[this.kind] + C.HOLD_SWITCH
+      ) {
+        this.kind = o;
+      }
+      return i;
     }
     _startSettle() {
       ((this.settle = C.SETTLE_TIME),
@@ -15679,12 +15717,16 @@ var Je = class {
                 (this._drop(), this.events.push({ type: `rest` }), (c = null)))
             : (this.putTimer = 0));
       }
-      let l = c
-        ? t
-          ? C.CIG_FACE_RATIO * t.faceWidth
-          : C.CIG_PALM_RATIO * c.palm
-        : r * C.CIG_LENGTH;
-      this.size = _e(this.size, he(l, 0.1 * r, 0.42 * r), C.SIZE_RATE, n);
+      let baseSize = r * C.CIG_LENGTH;
+      let depthScale = c ? he(c.palm / (0.19 * r), 0.88, 1.15) : 1.0;
+      this.size = _e(this.size, baseSize * depthScale, C.SIZE_RATE, n);
+      if (c) {
+        this.pitchZ = _e(this.pitchZ || 0, c.pitchZ || 0, 18, n);
+        this.rollZ = _e(this.rollZ || 0, c.rollZ || 0, 18, n);
+      } else {
+        this.pitchZ = _e(this.pitchZ || 0, 0, 8, n);
+        this.rollZ = _e(this.rollZ || 0, 8, n);
+      }
       let u = this.size,
         d = this.pos;
       if (!c)
@@ -15701,28 +15743,9 @@ var Je = class {
           (this.filterP = le(this.pos, ue(this.vec, this.gripFrac * u))));
       else {
         let e = this.grip.filter(c.points[this.kind], n);
-        ((this.axisV = ge(this.axisV, c.axis, C.AXIS_RATE, n)),
-          (this.leanSign = this._leanSign(c, t, !1)),
-          (this.lean = _e(this.lean, this.leanSign, C.LEAN_RATE, n)),
-          (this.facing = _e(
-            this.facing,
-            he(fe(c.side) / 0.9, C.MIN_FACING, 1),
-            C.AXIS_RATE,
-            n,
-          )),
-          (this.holdAngle = _e(
-            this.holdAngle,
-            C.HOLD_ANGLE[this.kind],
-            C.AXIS_RATE,
-            n,
-          )),
-          (this.gripFrac = _e(
-            this.gripFrac,
-            C.GRIP_FRAC[this.kind],
-            C.AXIS_RATE,
-            n,
-          )));
-        let r = qe(me(this.axisV), this.lean, this.facing, this.holdAngle);
+        let targetDir = c.fingerDir || c.axis;
+        this.axisV = ge(this.axisV, targetDir, C.AXIS_RATE, n);
+        let r = me(this.axisV);
         if (this.settle > 0) {
           this.settle = Math.max(0, this.settle - n);
           let t = Ge(1 - this.settle / C.SETTLE_TIME);
@@ -15811,9 +15834,11 @@ var Je = class {
       this.ember = _e(this.ember, g, g > this.ember ? 6 : 1.5, n);
       let _ = u * he(fe(this.vec), 0.3, 1),
         v = me(this.vec),
+        pZ = this.pitchZ || 0,
+        lenScale = Math.max(0.35, Math.cos(pZ * 1.1)),
         y = ce(
           this.filterP,
-          ue(v, _ * (C.FILTER_FRAC + (1 - C.FILTER_FRAC) * this.remaining)),
+          ue(v, _ * (C.FILTER_FRAC + (1 - C.FILTER_FRAC) * this.remaining * lenScale)),
         );
       return {
         state: this.state,
@@ -15829,6 +15854,8 @@ var Je = class {
         dir: v,
         size: _,
         width: u * C.CIG_WIDTH_RATIO,
+        pitch: this.pitchZ || 0,
+        roll: this.rollZ || 0,
         remaining: this.remaining,
         ash: this.ash,
         ember: this.ember,
@@ -16557,8 +16584,11 @@ var ct = class {
         i = t.size,
         a = r.slim ? t.width * 0.72 : t.width,
         o = a / 2,
-        s = i * C.FILTER_FRAC,
-        c = i * (1 - C.FILTER_FRAC),
+        pZ = t.pitch || 0,
+        roll = t.roll || 0,
+        lenScale = Math.max(0.35, Math.cos(pZ * 1.1)),
+        s = i * C.FILTER_FRAC * Math.max(0.4, lenScale),
+        c = i * (1 - C.FILTER_FRAC) * lenScale,
         l = s + c * t.remaining,
         u = c * t.ash,
         d = t.lighting ? t.lightProgress * 0.5 : t.ember;
@@ -16567,9 +16597,9 @@ var ct = class {
         e.translate(t.filter[0], t.filter[1]),
         e.rotate(Math.atan2(t.dir[1], t.dir[0])),
         e.save(),
-        (e.shadowColor = `rgba(20,20,26,0.35)`),
-        (e.shadowBlur = a * 1.1),
-        (e.shadowOffsetY = a * 0.45),
+        (e.shadowColor = `rgba(20,20,26,${Math.max(0.18, 0.38 - pZ * 0.15)})`),
+        (e.shadowBlur = a * (1.1 + Math.max(0, pZ * 0.5))),
+        (e.shadowOffsetY = a * (0.45 + pZ * 0.3)),
         (e.fillStyle = r.paper),
         ot(e, 0, -o, l + u, a, o * 0.5),
         e.fill(),
@@ -16676,14 +16706,38 @@ var ct = class {
           (e.globalCompositeOperation = `source-over`));
       }
       let f = e.createLinearGradient(0, -o, 0, o);
-      (f.addColorStop(0, `rgba(255,255,255,0.3)`),
-        f.addColorStop(0.3, `rgba(255,255,255,0)`),
-        f.addColorStop(0.72, `rgba(0,0,0,0.07)`),
-        f.addColorStop(1, `rgba(0,0,0,0.3)`),
+      let hl = he(0.28 - roll * 0.35, 0.08, 0.92);
+      (f.addColorStop(0, `rgba(255,255,255,0.35)`),
+        f.addColorStop(hl, `rgba(255,255,255,0.55)`),
+        f.addColorStop(Math.min(1, hl + 0.25), `rgba(255,255,255,0.05)`),
+        f.addColorStop(1, `rgba(0,0,0,0.35)`),
         (e.fillStyle = f),
         ot(e, 0, -o, l, a, [o * 0.35, 0, 0, o * 0.35]),
-        e.fill(),
-        e.restore());
+        e.fill());
+      if (pZ > 0.08) {
+        let tipX = l + u,
+          rx = Math.max(1.5, Math.abs(Math.sin(pZ * 1.1)) * o);
+        if (d > 0.05 || t.lit) {
+          let eg = e.createRadialGradient(tipX, 0, 0, tipX, 0, o);
+          eg.addColorStop(0, `#FFF1B8`);
+          eg.addColorStop(0.45, `#F7A93F`);
+          eg.addColorStop(0.85, `#C83818`);
+          eg.addColorStop(1, `#3A0E06`);
+          e.fillStyle = eg;
+        } else {
+          e.fillStyle = `#4A2A14`;
+        }
+        e.beginPath();
+        e.ellipse(tipX, 0, rx, o * 0.94, 0, 0, at);
+        e.fill();
+      } else if (pZ < -0.08) {
+        let rx = Math.max(1.5, Math.abs(Math.sin(pZ * 1.1)) * o);
+        e.fillStyle = `rgba(245,238,220,0.95)`;
+        e.beginPath();
+        e.ellipse(0, 0, rx, o * 0.94, 0, 0, at);
+        e.fill();
+      }
+      e.restore();
     }
     _drawButt(e) {
       let [t, n] = this.tray,
@@ -16774,34 +16828,38 @@ var ct = class {
           e.fill());
     }
     _pickupCues(e, t, n) {
-      let r = C.PICKUP_RADIUS * this.U,
-        i = 0.5 + 0.5 * Math.sin(this.t * 2.2),
-        [a, o] = t.restGrip;
+      let i = 0.5 + 0.5 * Math.sin(this.t * 3),
+        [a, o] = t.restGrip,
+        rTarget = 14 + 2 * i;
       (e.save(),
         (e.globalAlpha = n),
-        (e.lineWidth = 2),
+        (e.lineWidth = 1.5),
         (e.strokeStyle = se.LAVENDER_LIGHT),
         e.beginPath(),
-        e.arc(a, o, r * (0.72 + 0.1 * i), 0, at),
+        e.arc(a, o, rTarget, 0, at),
         e.stroke(),
         t.reachPoint &&
           ((e.lineWidth = 1),
-          (e.strokeStyle = se.LAVENDER),
+          (e.strokeStyle = `rgba(168, 172, 218, 0.45)`),
+          e.setLineDash([4, 4]),
           e.beginPath(),
           e.moveTo(a, o),
           e.lineTo(t.reachPoint[0], t.reachPoint[1]),
           e.stroke(),
+          e.setLineDash([]),
           (e.lineWidth = 2),
           (e.strokeStyle = se.LAVENDER_LIGHT),
+          (e.fillStyle = `rgba(202, 205, 235, 0.25)`),
           e.beginPath(),
           e.arc(
             t.reachPoint[0],
             t.reachPoint[1],
-            r * (1 - 0.6 * t.reach),
+            Math.max(7, 13 * (1 - 0.45 * t.reach)),
             0,
             at,
           ),
-          e.stroke()),
+          e.stroke(),
+          e.fill()),
         e.restore());
     }
     _putDownCue(e, t) {
@@ -27429,11 +27487,11 @@ var zf = class {
       let n = Math.max(Math.round(performance.now()), this.lastTs + 1);
       this.lastTs = n;
       let r = this.msPerFrame > C.DETECT_BUDGET_MS && this.hands && this.face,
-        i = this.hands && (!r || this.turn === 0),
+        i = !!this.hands,
         a = this.face && (!r || this.turn === 1);
       this.turn ^= 1;
       let o = performance.now(),
-        s = (e) => e.map((e) => t(e.x, e.y));
+        s = (e) => e.map((p) => { let [cx, cy] = t(p.x, p.y); return [cx, cy, p.z || 0]; });
       try {
         if (
           (i &&
