@@ -15209,7 +15209,11 @@ function ae({ open: e, current: t, onPick: n, onClose: r }) {
                   role: `radio`,
                   "aria-checked": a === e.id,
                   className: `pack-choice`,
-                  onClick: () => o(e.id),
+                  onClick: () => {
+                    o(e.id);
+                    n(e);
+                    r();
+                  },
                   onDoubleClick: () => {
                     (n(e), r());
                   },
@@ -15333,10 +15337,10 @@ var oe =
     EXHALE_DRAIN_TIME: 1.6,
     EXHALE_MIN_LUNG: 0.08,
     MIN_DRAG: 0.35,
-    CIG_LENGTH: 0.2,
-    CIG_FACE_RATIO: 0.62,
-    CIG_PALM_RATIO: 0.95,
-    CIG_WIDTH_RATIO: 0.095,
+    CIG_LENGTH: 0.165,
+    CIG_FACE_RATIO: 0.52,
+    CIG_PALM_RATIO: 0.82,
+    CIG_WIDTH_RATIO: 0.082,
     FILTER_FRAC: 0.27,
     GRIP_FRAC: { vee: 0.2, tri: 0.08, pinch: 0.1 },
     HOLD_ANGLE: { vee: 62, tri: 22, pinch: 38 },
@@ -16985,19 +16989,7 @@ var Cigarette3DRenderer = class {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.drawElements(gl.TRIANGLES, this.indexCount, gl.UNSIGNED_SHORT, 0);
 
-    ctx.save();
-    ctx.translate(anchorX, anchorY);
-    ctx.rotate(Math.atan2(dir[1], dir[0]));
-    let shadowAlpha = Math.max(0.1, 0.28 - (this.posCurrent[2] / 500.0));
-    ctx.fillStyle = `rgba(14, 14, 20, ${shadowAlpha})`;
-    ctx.shadowColor = `rgba(14, 14, 20, ${shadowAlpha * 0.9})`;
-    ctx.shadowBlur = radius * 1.5;
-    ctx.shadowOffsetY = radius * 0.4;
-    let shadowStart = -gripFrac * len;
-    let shadowLen = len * (ashFrac);
-    ctx.fillRect(shadowStart, -radius * 0.7, shadowLen, radius * 1.4);
-    ctx.restore();
-
+    // Drop shadow removed as requested
     ctx.drawImage(this.canvas, 0, 0, this.w, this.h);
   }
 
@@ -17322,9 +17314,9 @@ var ct = class {
         e.translate(t.filter[0], t.filter[1]),
         e.rotate(Math.atan2(t.dir[1], t.dir[0])),
         e.save(),
-        (e.shadowColor = `rgba(20,20,26,${Math.max(0.18, 0.38 - pZ * 0.15)})`),
-        (e.shadowBlur = a * (1.1 + Math.max(0, pZ * 0.5))),
-        (e.shadowOffsetY = a * (0.45 + pZ * 0.3)),
+        (e.shadowColor = `transparent`),
+        (e.shadowBlur = 0),
+        (e.shadowOffsetY = 0),
         (e.fillStyle = r.paper),
         ot(e, 0, -o, l + u, a, o * 0.5),
         e.fill(),
@@ -17365,10 +17357,10 @@ var ct = class {
           ));
       }
       if (
-        (this.cork
+        (r.tip === `cork` && this.cork
           ? (this.cork.setTransform?.(new DOMMatrix().scale(a / 14)),
             (e.fillStyle = this.cork))
-          : (e.fillStyle = r.tip),
+          : (e.fillStyle = (r.tipColor || r.tip || `#FFFFFF`)),
         ot(e, 0, -o, s, a, [o * 0.35, 0, 0, o * 0.35]),
         e.fill(),
         (e.fillStyle = `rgba(245,238,220,0.9)`),
@@ -17474,10 +17466,10 @@ var ct = class {
       (e.save(),
         e.translate(t - r * 0.05, n + r * 0.02),
         e.rotate(i.rot),
-        this.cork
+        a.tip === `cork` && this.cork
           ? (this.cork.setTransform?.(new DOMMatrix().scale(o / 14)),
             (e.fillStyle = this.cork))
-          : (e.fillStyle = a.tip),
+          : (e.fillStyle = (a.tipColor || a.tip || `#FFFFFF`)),
         ot(e, -s / 2, -o / 2, s * 0.8, o, o * 0.2),
         e.fill(),
         (e.fillStyle = a.paper),
